@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactPanel from '@/components/ContactPanel.astro';
+import editorialImage from '@/assets/images/tratamiento-facial.png';
+import { business } from '@/config/business';
+---
+
+<BaseLayout
+  title="El centro"
+  description="Conoce Láser Bulevar, centro de depilación láser y estética en Calle de la Rioja, 9, Jaén."
+>
+  <section class="editorial-hero">
+    <div class="editorial-hero-title reveal">
+      <p class="eyebrow">Láser Bulevar · Jaén</p>
+      <h1>Un espacio para cuidarte.</h1>
+    </div>
+    <div class="editorial-hero-intro reveal reveal-delay">
+      <p>
+        Láser Bulevar reúne depilación láser y cuidado facial y corporal en Jaén. Puedes consultar directamente con el centro para conocer los servicios disponibles y resolver tus dudas antes de reservar.
+      </p>
+    </div>
+  </section>
+
+  <section class="center-story section-pad animate-on-scroll">
+    <figure>
+      <Image src={editorialImage} alt="Imagen editorial de cuidado facial" widths={[520, 760, 1040]} sizes="(max-width: 767px) 100vw, 42vw" format="webp" quality={84} />
+      <figcaption>Imagen editorial. Las fotografías reales del centro se incorporarán próximamente.</figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow">Cuidado cercano</p>
+      <h2>Pregunta, conoce tus opciones y decide con calma.</h2>
+      <p>La web ofrece una visión general. Para saber qué servicios, precios y horarios están disponibles, habla con el centro por WhatsApp o teléfono.</p>
+      <a class="text-link" href="/contacto/">Ver contacto y horario <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="location-banner animate-on-scroll">
+    <div>
+      <p class="eyebrow">En Jaén</p>
+      <h2>{business.address.street}</h2>
+      <p>{business.address.postalCode} {business.address.city}</p>
+    </div>
+    <a class="button button-light" href={business.mapsUrl} target="_blank" rel="noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <ContactPanel />
+</BaseLayout>

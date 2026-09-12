@@ -1,0 +1,144 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import heroImage from '@/assets/images/hero-piel.png';
+import laserImage from '@/assets/images/depilacion-laser.png';
+import facialImage from '@/assets/images/tratamiento-facial.png';
+import { business, whatsappLink } from '@/config/business';
+import { services } from '@/content/services';
+import FaqList from '@/components/FaqList.astro';
+import ContactPanel from '@/components/ContactPanel.astro';
+
+const message = 'Hola, me gustaría pedir información y consultar disponibilidad para una cita.';
+const homeFaqs = [
+  { question: '¿Cómo puedo pedir cita?', answer: 'Puedes escribir por WhatsApp o llamar al 953 10 19 79. El centro te confirmará la disponibilidad.' },
+  { question: '¿Qué servicios ofrece Láser Bulevar?', answer: 'La web presenta tres áreas generales: depilación láser, cuidado facial y cuidado corporal. Consulta directamente la oferta vigente antes de reservar.' },
+  { question: '¿Dónde puedo consultar los precios?', answer: 'Los precios no se publican en la web. Escríbenos o llama al centro para recibir información actualizada.' },
+  { question: '¿Dónde está el centro?', answer: 'En Calle de la Rioja, 9, 23009 Jaén. Desde la página de contacto puedes abrir la ubicación en Google Maps.' },
+];
+---
+
+<BaseLayout
+  title={business.name}
+  description="Depilación láser y tratamientos estéticos en Jaén. Consulta disponibilidad y pide tu cita por WhatsApp o teléfono."
+>
+  <section class="home-hero">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Estética y depilación láser · Jaén</p>
+      <h1>Tu piel,<br /><em>en buenas manos.</em></h1>
+      <p class="hero-intro">
+        Un espacio dedicado al cuidado de tu piel, con depilación láser y tratamientos faciales y corporales.
+      </p>
+      <a class="button button-primary" href={whatsappLink(message)} target="_blank" rel="noreferrer">
+        Pide cita por WhatsApp <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <figure class="hero-media reveal reveal-delay">
+      <Image
+        src={heroImage}
+        alt="Retrato editorial de una mujer con piel natural"
+        widths={[540, 760, 1080]}
+        sizes="(max-width: 767px) 100vw, 50vw"
+        format="webp"
+        quality={88}
+        loading="eager"
+      />
+      <figcaption>Imagen editorial</figcaption>
+    </figure>
+  </section>
+
+  <section class="trust-strip" aria-label="Información destacada">
+    <a href={business.mapsUrl} target="_blank" rel="noreferrer">
+      <span class="trust-value">{business.rating.value}</span>
+      <span>en Google · {business.rating.reviews} reseñas ↗</span>
+    </a>
+    <div>
+      <span class="trust-value">3</span>
+      <span>familias de tratamientos</span>
+    </div>
+    <div>
+      <span class="trust-value">Jaén</span>
+      <span>{business.address.street}</span>
+    </div>
+  </section>
+
+  <section class="services-showcase section-pad animate-on-scroll">
+    <div class="services-visual">
+      <Image
+        src={laserImage}
+        alt="Imagen editorial de depilación láser"
+        widths={[480, 720, 960]}
+        sizes="(max-width: 767px) 100vw, 42vw"
+        format="webp"
+        quality={84}
+      />
+      <span>Imagen editorial</span>
+    </div>
+    <div class="services-list">
+      <p class="eyebrow">Nuestros cuidados</p>
+      {services.map((service, index) => (
+        <a href={`/${service.slug}/`}>
+          <span>0{index + 1}</span>
+          <div>
+            <h2>{service.shortTitle}</h2>
+            <p>{service.intro}</p>
+          </div>
+          <i aria-hidden="true">↗</i>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="care-process animate-on-scroll">
+    <div class="care-process-title">
+      <p class="eyebrow">Tu consulta</p>
+      <h2>Cuidarte empieza por preguntar.</h2>
+    </div>
+    <ol>
+      <li><span>01</span><strong>Cuéntanos qué buscas</strong><p>Escribe por WhatsApp o llámanos y dinos qué servicio te interesa.</p></li>
+      <li><span>02</span><strong>Resuelve tus dudas</strong><p>Pregunta por las opciones, precios y horarios disponibles actualmente.</p></li>
+      <li><span>03</span><strong>Organiza tu cita</strong><p>El centro te confirmará directamente la disponibilidad.</p></li>
+    </ol>
+    <Image src={facialImage} alt="Imagen editorial de un cuidado facial" widths={[420, 640, 900]} sizes="(max-width: 767px) 100vw, 34vw" format="webp" quality={82} />
+  </section>
+
+  <section class="center-intro section-pad animate-on-scroll">
+    <div>
+      <p class="eyebrow">Láser Bulevar · Jaén</p>
+      <h2>Un espacio cercano para cuidar de ti.</h2>
+    </div>
+    <div class="center-intro-copy">
+      <p>Depilación láser y estética en Calle de la Rioja, junto al Bulevar de Jaén. Consulta la oferta actual y encuentra un momento para ti.</p>
+      <a class="text-link" href="/el-centro/">Conoce el centro <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="reviews-section section-pad animate-on-scroll">
+    <div class="reviews-heading">
+      <p class="eyebrow">Opiniones en Google</p>
+      <h2>Lo cuentan quienes ya han venido.</h2>
+      <a href={business.mapsUrl} target="_blank" rel="noreferrer">
+        <strong>{business.rating.value}</strong>
+        <span>{business.rating.reviews} reseñas · consultar en Google ↗</span>
+      </a>
+    </div>
+    <div class="review-notes">
+      <blockquote>
+        <p>“El trato inmejorable.”</p>
+        <cite>Francisco Moral · Google</cite>
+      </blockquote>
+      <blockquote>
+        <p>“Resultados los esperados.”</p>
+        <cite>Irene Cuevas · Google</cite>
+      </blockquote>
+      <blockquote>
+        <p>“Cada cierto tiempo sacan promociones muy rentables.”</p>
+        <cite>Cris PG · Google</cite>
+      </blockquote>
+      <small>Valoración y reseñas consultadas el {business.rating.checkedAt}. Las reseñas pertenecen a sus autores.</small>
+    </div>
+  </section>
+
+  <FaqList items={homeFaqs} />
+  <ContactPanel />
+</BaseLayout>

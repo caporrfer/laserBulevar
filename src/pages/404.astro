@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Página no encontrada" description="La página solicitada no existe." noindex>
+  <section class="not-found section-pad">
+    <p class="eyebrow">Error 404</p>
+    <h1>Esta página no está.</h1>
+    <p>Puede que el enlace haya cambiado. Puedes volver al inicio o consultar cómo contactar con el centro.</p>
+    <div>
+      <a class="button button-primary" href="/">Volver al inicio</a>
+      <a class="text-link" href="/contacto/">Ir a contacto <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+interface Item {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Item[];
+  title?: string;
+}
+
+const { items, title = 'Preguntas frecuentes' } = Astro.props;
+---
+
+<section class="faq-section section-pad animate-on-scroll">
+  <div class="section-heading">
+    <p class="eyebrow">Antes de venir</p>
+    <h2>{title}</h2>
+  </div>
+  <div class="faq-list">
+    {items.map((item, index) => (
+      <details>
+        <summary>
+          <span>0{index + 1}</span>
+          <strong>{item.question}</strong>
+          <i aria-hidden="true">+</i>
+        </summary>
+        <p>{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>

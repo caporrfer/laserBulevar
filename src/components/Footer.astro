@@ -1,0 +1,38 @@
+---
+import { business, defaultWhatsappMessage, whatsappLink } from '@/config/business';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-title">
+    <p class="eyebrow">Contacto</p>
+    <h2>Hablemos<br />de tu piel.</h2>
+  </div>
+  <div class="footer-columns">
+    <div>
+      <p class="footer-label">Cita e información</p>
+      <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noreferrer">WhatsApp ↗</a>
+      <a href={business.phoneHref}>{business.phoneDisplay}</a>
+    </div>
+    <div>
+      <p class="footer-label">Visítanos</p>
+      <a href={business.mapsUrl} target="_blank" rel="noreferrer">
+        {business.address.street}<br />{business.address.postalCode} {business.address.city} ↗
+      </a>
+    </div>
+    <div>
+      <p class="footer-label">Horario</p>
+      <p>Lun–Vie · {business.hours.weekdays}</p>
+      <p>Sábado · {business.hours.saturday}</p>
+      <p>Domingo · {business.hours.sunday}</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© {currentYear} {business.name}</p>
+    <div>
+      <a href="/legal/aviso-legal/">Aviso legal</a>
+      <a href="/legal/privacidad/">Privacidad</a>
+    </div>
+    <p>Estética y depilación láser · Jaén</p>
+  </div>
+</footer>

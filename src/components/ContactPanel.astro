@@ -1,0 +1,25 @@
+---
+import { business, whatsappLink } from '@/config/business';
+
+interface Props {
+  message?: string;
+  title?: string;
+}
+
+const {
+  message = 'Hola, me gustaría pedir información y consultar disponibilidad para una cita.',
+  title = 'Tu próxima cita empieza aquí.',
+} = Astro.props;
+---
+
+<section class="contact-panel section-pad animate-on-scroll">
+  <div>
+    <p class="eyebrow">Cita e información</p>
+    <h2>{title}</h2>
+  </div>
+  <div class="contact-panel-actions">
+    <p>Escríbenos o llámanos para consultar servicios, precios y disponibilidad.</p>
+    <a class="button button-light" href={whatsappLink(message)} target="_blank" rel="noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
+    <a class="text-link" href={business.phoneHref}>Llamar al {business.phoneDisplay} <span aria-hidden="true">→</span></a>
+  </div>
+</section>
