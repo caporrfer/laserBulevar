@@ -16,14 +16,15 @@ Consulta realizada el 13 de septiembre de 2026.
 
 La composición, identidad y textos de esta propuesta son originales.
 
-## Fotografías generadas
+## Imágenes e identidad generadas
 
-Las cuatro imágenes se crearon con la herramienta integrada de generación de imágenes. Ninguna representa personas vinculadas con el negocio.
+Las cuatro fotografías y el símbolo gráfico se crearon con la herramienta integrada de generación de imágenes. Ninguna representa a personas, instalaciones, productos ni equipos vinculados con el negocio.
 
-1. **Campaña principal:** mujer y hombre adultos, retrato editorial sobre fondo ciruela, luz coral y espacio negativo para el titular.
-2. **Depilación láser:** tratamiento profesional en una pierna adulta con aplicador genérico sin marca, entorno limpio y luz cálida.
-3. **Cuidado facial:** retrato macro de una mujer adulta aplicándose sérum, textura de piel natural y luz ciruela/coral.
-4. **Cuidado corporal:** espalda y hombro de un hombre adulto, encuadre escultórico y no sexualizado, fondo coral y sombras ciruela.
+1. **Campaña principal:** antebrazo adulto sobre lino, con formas de vidrio en coral y ciruela; sin rostro, pose ni identidad visible.
+2. **Depilación láser:** detalle de una sesión en una pierna adulta con aplicador genérico sin marca; sin rostro ni cuerpo identificable.
+3. **Cuidado facial:** bodegón editorial de un frasco sin marca, lino, vidrio y un perfil de piel fuera de foco; sin rostro visible.
+4. **Cuidado corporal:** hombro y brazo adultos parcialmente cubiertos por una bata de lino; sin rostro ni exposición corporal.
+5. **Símbolo de marca:** bucle abstracto de dos trazos de luz en ciruela y coral, usado como marca de cabecera, pie y favicon.
 
-Todos los prompts exigieron ausencia de texto, logotipos, marcas de agua, afirmaciones médicas y retoque plástico de la piel.
+Los prompts exigieron ausencia de texto, logotipos ajenos, marcas de agua, afirmaciones médicas, retoque plástico de la piel y poses sexualizadas.
 

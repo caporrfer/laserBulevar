@@ -219,21 +219,11 @@ em {
 }
 
 .brand-mark {
-  display: grid;
-  width: 2.3rem;
-  height: 2.3rem;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--coral);
-  color: var(--plum-deep);
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -0.1em;
-}
-
-.brand-mark span,
-.footer-brand span {
-  color: var(--cream);
+  display: block;
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0.18rem 0.5rem rgba(36, 16, 31, 0.28));
 }
 
 .brand-name {
@@ -1023,10 +1013,24 @@ em {
 }
 
 .footer-brand {
-  color: var(--coral);
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.footer-brand-mark {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: contain;
+}
+
+.footer-brand-copy {
+  color: var(--cream);
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: -0.08em;
+  letter-spacing: 0.05em;
+  line-height: 0.95;
+  text-transform: uppercase;
 }
 
 .footer-bottom {

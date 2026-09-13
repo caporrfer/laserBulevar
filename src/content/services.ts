@@ -34,7 +34,7 @@ export const services: Service[] = [
     price: 15,
     unit: '/ sesión',
     image: laserImage,
-    imageAlt: 'Fotografía editorial creada con IA de una sesión de depilación láser en las piernas',
+    imageAlt: 'Fotografía editorial creada con IA de una sesión de depilación láser en una pierna adulta',
     message: 'Hola, me gustaría información sobre depilación láser y disponibilidad para una cita.',
     points: ['Rostro y cuerpo', 'Mujeres y hombres', 'Consulta personalizada'],
     questions: [
@@ -64,7 +64,7 @@ export const services: Service[] = [
     price: 45,
     unit: '/ sesión',
     image: facialImage,
-    imageAlt: 'Fotografía editorial creada con IA de una mujer adulta aplicándose sérum facial',
+    imageAlt: 'Fotografía editorial creada con IA de un bodegón de cuidado facial con un frasco sin marca',
     message: 'Hola, me gustaría información sobre tratamientos faciales y disponibilidad para una cita.',
     points: ['Cuidado personalizado', 'Opciones no invasivas', 'Consulta previa'],
     questions: [
@@ -94,7 +94,7 @@ export const services: Service[] = [
     price: 35,
     unit: '/ sesión',
     image: corporalImage,
-    imageAlt: 'Fotografía editorial creada con IA de la espalda de un hombre adulto',
+    imageAlt: 'Fotografía editorial creada con IA de un hombro adulto cubierto con una bata de lino',
     message: 'Hola, me gustaría información sobre tratamientos corporales y disponibilidad para una cita.',
     points: ['Consulta por objetivos', 'Cuidado a medida', 'Atención directa'],
     questions: [

@@ -24,7 +24,10 @@ import { services } from '@/content/services';
     </div>
   </div>
   <div class="footer-grid container">
-    <div class="footer-brand">L<span>•</span>B</div>
+    <div class="footer-brand" aria-label="Láser Bulevar">
+      <img class="footer-brand-mark" src="/brand-mark.png" width="56" height="56" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+      <span class="footer-brand-copy">Láser<br />Bulevar</span>
+    </div>
     <div>
       <p class="footer-label">Servicios</p>
       {services.map((service) => <a href={`/${service.slug}/`}>{service.shortTitle}</a>)}
