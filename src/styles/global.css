@@ -557,11 +557,6 @@ em {
   color: var(--cream);
 }
 
-.price-number {
-  font-size: 0.75rem;
-  font-weight: 800;
-}
-
 .price-card h3 {
   max-width: 12ch;
   margin: auto 0 1rem;
@@ -799,18 +794,10 @@ em {
 }
 
 .service-intro-copy li {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
+  display: block;
   padding-block: 1rem;
   border-top: 1px solid var(--line);
   font-weight: 700;
-}
-
-.service-intro-copy li span {
-  color: var(--coral-dark);
-  font-size: 0.72rem;
-  font-weight: 800;
 }
 
 .single-price {
@@ -868,7 +855,7 @@ em {
 .faq-list summary {
   display: grid;
   min-height: 5rem;
-  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-columns: 1fr 2rem;
   align-items: center;
   gap: 0.75rem;
   cursor: pointer;
@@ -879,12 +866,6 @@ em {
 
 .faq-list summary::-webkit-details-marker {
   display: none;
-}
-
-.faq-list summary span {
-  color: var(--coral-dark);
-  font-size: 0.72rem;
-  font-weight: 800;
 }
 
 .faq-list summary i {
@@ -919,7 +900,7 @@ em {
 
 .faq-list details p {
   max-width: 36rem;
-  margin: 0 2rem 1.5rem 2.75rem;
+  margin: 0 2rem 1.5rem 0;
   color: var(--muted);
 }
 
@@ -948,11 +929,6 @@ em {
 .more-card:hover {
   transform: translateY(-4px);
   background: var(--coral);
-}
-
-.more-card > span {
-  font-size: 0.72rem;
-  font-weight: 800;
 }
 
 .more-card h2 {

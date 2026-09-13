@@ -48,13 +48,13 @@ const otherServices = services.filter((item) => item.slug !== service.slug);
   <section class="service-intro section container">
     <div data-reveal>
       <p class="eyebrow">{service.title}</p>
-      <h2>Lo esencial,<br /><em>bien cuidado.</em></h2>
+      <h2>Antes de reservar,<br /><em>te orientamos.</em></h2>
     </div>
     <div class="service-intro-copy" data-reveal>
       <p>{service.description}</p>
       <ul>
-        {service.points.map((point, index) => (
-          <li><span>0{index + 1}</span>{point}</li>
+        {service.points.map((point) => (
+          <li>{point}</li>
         ))}
       </ul>
     </div>
@@ -74,14 +74,13 @@ const otherServices = services.filter((item) => item.slug !== service.slug);
 
   <section class="faq-section section container">
     <div class="faq-heading" data-reveal>
-      <p class="eyebrow">Antes de venir</p>
-      <h2>Preguntas<br /><em>frecuentes.</em></h2>
+      <p class="eyebrow">Antes de reservar</p>
+      <h2>Dudas<br /><em>habituales.</em></h2>
     </div>
     <div class="faq-list" data-reveal>
-      {service.questions.map((item, index) => (
+      {service.questions.map((item) => (
         <details>
           <summary>
-            <span>0{index + 1}</span>
             {item.question}
             <i aria-hidden="true"></i>
           </summary>
@@ -92,11 +91,10 @@ const otherServices = services.filter((item) => item.slug !== service.slug);
   </section>
 
   <section class="more-services section container">
-    <p class="eyebrow" data-reveal>También en Láser Bulevar</p>
+    <p class="eyebrow" data-reveal>Otros tratamientos</p>
     <div class="more-grid">
-      {otherServices.map((item, index) => (
+      {otherServices.map((item) => (
         <a class="more-card" href={`/${item.slug}/`} data-reveal>
-          <span>0{index + 1}</span>
           <h2>{item.shortTitle}</h2>
           <ArrowIcon />
         </a>
