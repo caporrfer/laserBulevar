@@ -1,0 +1,94 @@
+---
+import { business, defaultWhatsappMessage, whatsappLink } from '@/config/business';
+import { services } from '@/content/services';
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<header class="site-header" data-header>
+  <div class="header-shell">
+    <a class="brand" href="/" aria-label={`${business.name}, inicio`}>
+      <span class="brand-mark" aria-hidden="true">L<span>•</span></span>
+      <span class="brand-name">Láser<br />Bulevar</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      {services.map((service) => (
+        <a
+          href={`/${service.slug}/`}
+          aria-current={isCurrent(`/${service.slug}/`) ? 'page' : undefined}
+        >
+          {service.navLabel}
+        </a>
+      ))}
+      <a href="/#contacto">Contacto</a>
+    </nav>
+
+    <a
+      class="button button-small header-cta"
+      href={whatsappLink(defaultWhatsappMessage)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Pedir cita
+      <span aria-hidden="true">↗</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Abrir menú"
+      data-menu-toggle
+    >
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navegación móvil" hidden data-mobile-menu>
+    <div class="mobile-menu-inner">
+      <a href="/" aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
+      {services.map((service) => (
+        <a
+          href={`/${service.slug}/`}
+          aria-current={isCurrent(`/${service.slug}/`) ? 'page' : undefined}
+        >
+          {service.shortTitle}
+        </a>
+      ))}
+      <a href="/#contacto">Contacto</a>
+      <p>Depilación láser y estética<br />en Jaén.</p>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+
+  const closeMenu = () => {
+    if (!button || !menu) return;
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Abrir menú');
+    menu.hidden = true;
+    document.body.classList.remove('menu-open');
+  };
+
+  button?.addEventListener('click', () => {
+    if (!menu) return;
+    const willOpen = button.getAttribute('aria-expanded') !== 'true';
+    button.setAttribute('aria-expanded', String(willOpen));
+    button.setAttribute('aria-label', willOpen ? 'Cerrar menú' : 'Abrir menú');
+    menu.hidden = !willOpen;
+    document.body.classList.toggle('menu-open', willOpen);
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 900) closeMenu();
+  });
+</script>
+

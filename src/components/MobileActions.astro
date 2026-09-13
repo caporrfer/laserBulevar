@@ -1,0 +1,20 @@
+---
+import { business, defaultWhatsappMessage, whatsappLink } from '@/config/business';
+---
+
+<aside class="mobile-actions" aria-label="Contacto rápido">
+  <a href={business.phoneHref} aria-label={`Llamar al ${business.phoneDisplay}`}>
+    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3h3l1.5 4-2 1.5a15 15 0 0 0 6 6l1.5-2 4 1.5v3a4 4 0 0 1-4 4C9.3 20 4 14.7 3 7a4 4 0 0 1 4-4Z" /></svg>
+    Llamar
+  </a>
+  <a
+    class="mobile-whatsapp"
+    href={whatsappLink(defaultWhatsappMessage)}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z" /><path d="M8.5 8.2c.4 3.1 2 4.7 5.2 5.5" /></svg>
+    WhatsApp
+  </a>
+</aside>
+

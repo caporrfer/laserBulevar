@@ -1,0 +1,49 @@
+---
+import { business, defaultWhatsappMessage, whatsappLink } from '@/config/business';
+import { services } from '@/content/services';
+---
+
+<footer class="site-footer">
+  <div class="footer-top container">
+    <div>
+      <p class="eyebrow eyebrow-light">Láser Bulevar · Jaén</p>
+      <p class="footer-title">¿Hablamos<br />de tu piel?</p>
+    </div>
+    <div class="footer-actions">
+      <a
+        class="button button-coral"
+        href={whatsappLink(defaultWhatsappMessage)}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Pedir cita por WhatsApp <span aria-hidden="true">↗</span>
+      </a>
+      <a class="text-link text-link-light" href={business.phoneHref}>
+        Llamar al {business.phoneDisplay} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+  <div class="footer-grid container">
+    <div class="footer-brand">L<span>•</span>B</div>
+    <div>
+      <p class="footer-label">Servicios</p>
+      {services.map((service) => <a href={`/${service.slug}/`}>{service.shortTitle}</a>)}
+    </div>
+    <div>
+      <p class="footer-label">Centro</p>
+      <a href={business.mapsUrl} target="_blank" rel="noreferrer">
+        {business.address.street}<br />{business.address.postalCode} {business.address.city}
+      </a>
+    </div>
+    <div>
+      <p class="footer-label">Horario</p>
+      <p>L–V · {business.hours.weekdays}</p>
+      <p>Sábado · {business.hours.saturday}</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© {new Date().getFullYear()} Láser Bulevar</p>
+    <p>Propuesta visual · Datos y precios pendientes de validación final</p>
+  </div>
+</footer>
+

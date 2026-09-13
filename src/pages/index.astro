@@ -1,0 +1,181 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import heroImage from '@/assets/images/hero-campaign.png';
+import { business, defaultWhatsappMessage, illustrativePriceNotice, whatsappLink } from '@/config/business';
+import { services } from '@/content/services';
+
+const [laser, facial, corporal] = services;
+---
+
+<BaseLayout
+  title="Láser Bulevar | Depilación láser y estética en Jaén"
+  description="Depilación láser y tratamientos faciales y corporales en Jaén. Consulta opciones y disponibilidad por WhatsApp o teléfono."
+>
+  <section class="home-hero">
+    <div class="home-hero-media">
+      <Image
+        src={heroImage}
+        alt="Fotografía editorial creada con IA de una mujer y un hombre adultos"
+        widths={[640, 960, 1280, 1600]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        quality={86}
+      />
+    </div>
+    <div class="home-hero-overlay"></div>
+    <div class="home-hero-content container">
+      <p class="hero-kicker" data-hero-kicker>Depilación láser y estética · Jaén</p>
+      <h1 class="hero-title" data-hero-title>
+        <span><i>Tu piel.</i></span>
+        <span><i>Tu ritmo.</i></span>
+      </h1>
+      <div class="hero-actions" data-hero-actions>
+        <a
+          class="button button-coral"
+          href={whatsappLink(defaultWhatsappMessage)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Pedir cita <span aria-hidden="true">↗</span>
+        </a>
+        <a class="text-link text-link-light" href="#servicios">
+          Ver servicios <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+    <p class="hero-side-note">Cuidado de la piel para mujeres y hombres</p>
+  </section>
+
+  <section class="manifesto section container" aria-label="Presentación">
+    <p class="eyebrow" data-reveal>01 · Cuidarte, a tu manera</p>
+    <h2 data-reveal>
+      Piel real.<br />Cuidados que<br /><em>encajan contigo.</em>
+    </h2>
+    <p class="manifesto-copy" data-reveal>
+      Un espacio en Jaén para consultar depilación láser y opciones de estética facial y corporal, con atención directa y sin rodeos.
+    </p>
+  </section>
+
+  <section id="servicios" class="services-showcase section">
+    <article class="feature-service feature-laser">
+      <div class="feature-copy" data-reveal>
+        <p class="eyebrow eyebrow-light">02 · Servicio principal</p>
+        <h2>{laser.statement}</h2>
+        <p>{laser.intro}</p>
+        <a class="button button-cream" href={`/${laser.slug}/`}>
+          Explorar depilación láser <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <a class="feature-media" href={`/${laser.slug}/`} aria-label={`Ver ${laser.shortTitle}`}>
+        <Image
+          src={laser.image}
+          alt={laser.imageAlt}
+          widths={[480, 720, 960, 1200]}
+          sizes="(max-width: 899px) 100vw, 52vw"
+          loading="lazy"
+          quality={82}
+          data-parallax
+        />
+        <span aria-hidden="true">↗</span>
+      </a>
+    </article>
+
+    <div class="secondary-services container">
+      {[facial, corporal].map((service, index) => (
+        <article class:list={['service-tile', index === 1 && 'service-tile-shift']} data-reveal>
+          <a class="service-tile-media" href={`/${service.slug}/`} aria-label={`Ver ${service.shortTitle}`}>
+            <Image
+              src={service.image}
+              alt={service.imageAlt}
+              widths={[400, 600, 800, 1000]}
+              sizes="(max-width: 899px) 100vw, 42vw"
+              loading="lazy"
+              quality={82}
+              data-parallax
+            />
+          </a>
+          <div class="service-tile-copy">
+            <p class="eyebrow">0{index + 3} · {service.eyebrow}</p>
+            <h2>{service.statement}</h2>
+            <a class="text-link" href={`/${service.slug}/`}>
+              Ver {service.shortTitle.toLowerCase()} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="prices section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">05 · Una primera orientación</p>
+        <h2>Precios de<br /><em>referencia.</em></h2>
+      </div>
+      <div class="price-grid">
+        {services.map((service, index) => (
+          <a class="price-card" href={`/${service.slug}/`} data-reveal>
+            <span class="price-number">0{index + 1}</span>
+            <h3>{service.shortTitle}</h3>
+            <p class="price"><small>Desde</small>{service.price}€<small>{service.unit}</small></p>
+            <span class="price-arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+      <p class="price-notice" data-reveal>{illustrativePriceNotice.replace('Precio', 'Precios')}</p>
+    </div>
+  </section>
+
+  <section class="reviews section container">
+    <div class="reviews-score" data-reveal>
+      <span class="score">{business.rating.value}</span>
+      <span class="stars" aria-label={`${business.rating.value} de 5 estrellas`}>★★★★★</span>
+    </div>
+    <div class="reviews-copy" data-reveal>
+      <p class="eyebrow">Lo cuentan en Google</p>
+      <h2>Buen trato.<br />Resultados que se notan.</h2>
+      <p>
+        {business.rating.reviews} reseñas públicas. Valoración consultada el {business.rating.checkedAt}.
+      </p>
+      <a class="text-link" href={business.mapsUrl} target="_blank" rel="noreferrer">
+        Ver reseñas en Google <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact-section section">
+    <div class="contact-grid container">
+      <div class="contact-main" data-reveal>
+        <p class="eyebrow eyebrow-light">Ven a vernos</p>
+        <h2>En el Bulevar<br />de <em>Jaén.</em></h2>
+        <a
+          class="button button-coral"
+          href={business.mapsUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Cómo llegar <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="contact-details" data-reveal>
+        <div>
+          <p class="contact-label">Dirección</p>
+          <p>{business.address.street}<br />{business.address.postalCode} {business.address.city}</p>
+        </div>
+        <div>
+          <p class="contact-label">Horario</p>
+          <p>Lunes a viernes<br />{business.hours.weekdays}</p>
+          <p>Sábado<br />{business.hours.saturday}</p>
+        </div>
+        <div>
+          <p class="contact-label">Contacto</p>
+          <a href={business.phoneHref}>{business.phoneDisplay}</a>
+          <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noreferrer">WhatsApp ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

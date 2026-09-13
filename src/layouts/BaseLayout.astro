@@ -1,0 +1,108 @@
+---
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import MobileActions from '@/components/MobileActions.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#421e38" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+    <MobileActions />
+
+    <script>
+      import gsap from 'gsap';
+      import ScrollTrigger from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!reduceMotion) {
+        gsap.from('[data-hero-kicker]', {
+          y: 22,
+          opacity: 0,
+          duration: 0.65,
+          ease: 'power2.out',
+        });
+        gsap.from('[data-hero-title] > span', {
+          yPercent: 110,
+          duration: 0.9,
+          stagger: 0.1,
+          ease: 'power3.out',
+          delay: 0.08,
+        });
+        gsap.from('[data-hero-actions]', {
+          y: 18,
+          opacity: 0,
+          duration: 0.65,
+          ease: 'power2.out',
+          delay: 0.48,
+        });
+
+        gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
+          gsap.from(element, {
+            y: 44,
+            opacity: 0,
+            duration: 0.75,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 88%',
+              once: true,
+            },
+          });
+        });
+
+        const media = gsap.matchMedia();
+        media.add('(min-width: 900px)', () => {
+          gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((element) => {
+            gsap.fromTo(
+              element,
+              { yPercent: -5 },
+              {
+                yPercent: 5,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: element.parentElement,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 0.8,
+                },
+              },
+            );
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
