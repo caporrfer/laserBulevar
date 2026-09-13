@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { illustrativePriceNotice, whatsappLink } from '@/config/business';
 import { services, type Service } from '@/content/services';
+import ArrowIcon from '@/components/ArrowIcon.astro';
 
 interface Props {
   service: Service;
@@ -38,7 +39,7 @@ const otherServices = services.filter((item) => item.slug !== service.slug);
           target="_blank"
           rel="noreferrer"
         >
-          Consultar por WhatsApp <span aria-hidden="true">↗</span>
+          Consultar por WhatsApp <ArrowIcon />
         </a>
       </div>
     </div>
@@ -97,7 +98,7 @@ const otherServices = services.filter((item) => item.slug !== service.slug);
         <a class="more-card" href={`/${item.slug}/`} data-reveal>
           <span>0{index + 1}</span>
           <h2>{item.shortTitle}</h2>
-          <i aria-hidden="true">↗</i>
+          <ArrowIcon />
         </a>
       ))}
     </div>

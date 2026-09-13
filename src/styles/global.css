@@ -191,6 +191,18 @@ em {
   color: var(--cream);
 }
 
+.arrow-icon {
+  display: block;
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.15;
+}
+
 /* Header */
 .site-header {
   position: absolute;
@@ -475,7 +487,11 @@ em {
   border-radius: 50%;
   background: var(--coral);
   color: var(--plum-deep);
-  font-size: 1.4rem;
+}
+
+.feature-media > span .arrow-icon {
+  width: 1.45rem;
+  height: 1.45rem;
 }
 
 .secondary-services {
@@ -584,6 +600,11 @@ em {
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
+}
+
+.price-arrow .arrow-icon {
+  width: 1.05rem;
+  height: 1.05rem;
 }
 
 .price-notice {
@@ -943,11 +964,12 @@ em {
   line-height: 0.9;
 }
 
-.more-card i {
+.more-card .arrow-icon {
   position: absolute;
   top: 1.3rem;
   right: 1.3rem;
-  font-style: normal;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .not-found {

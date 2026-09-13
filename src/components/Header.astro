@@ -1,6 +1,7 @@
 ---
 import { business, defaultWhatsappMessage, whatsappLink } from '@/config/business';
 import { services } from '@/content/services';
+import ArrowIcon from '@/components/ArrowIcon.astro';
 
 const currentPath = Astro.url.pathname;
 const isCurrent = (href: string) =>
@@ -33,7 +34,7 @@ const isCurrent = (href: string) =>
       rel="noreferrer"
     >
       Pedir cita
-      <span aria-hidden="true">↗</span>
+      <ArrowIcon />
     </a>
 
     <button

@@ -1,6 +1,7 @@
 ---
 import { business, defaultWhatsappMessage, whatsappLink } from '@/config/business';
 import { services } from '@/content/services';
+import ArrowIcon from '@/components/ArrowIcon.astro';
 ---
 
 <footer class="site-footer">
@@ -16,10 +17,10 @@ import { services } from '@/content/services';
         target="_blank"
         rel="noreferrer"
       >
-        Pedir cita por WhatsApp <span aria-hidden="true">↗</span>
+        Pedir cita por WhatsApp <ArrowIcon />
       </a>
       <a class="text-link text-link-light" href={business.phoneHref}>
-        Llamar al {business.phoneDisplay} <span aria-hidden="true">↗</span>
+        Llamar al {business.phoneDisplay} <ArrowIcon />
       </a>
     </div>
   </div>
